@@ -29,11 +29,13 @@ export default function AboutPage() {
           <h2 className="mb-2 text-xl font-bold">I’m Sahal Palayat</h2>
           <div className="mb-6">
             <p className="mb-1">
-              As a creative and enthusiastic MERN stack developer, I love building web applications that are both powerful and user-friendly.   <br />
-
-              My coding journey is powered by a deep passion for innovation and problem-solving. From developing solid back-end systems to designing beautiful front-end interfaces, I approach every project with energy and a desire to learn and grow.
-<br />
-              I'm excited about the possibility of collaborating to create cutting-edge web applications. Let's connect and make something amazing together!
+              As a creative and enthusiastic MERN stack developer, I love building web applications that are both powerful and
+              user-friendly. <br />
+              My coding journey is powered by a deep passion for innovation and problem-solving. From developing solid back-end systems to
+              designing beautiful front-end interfaces, I approach every project with energy and a desire to learn and grow.
+              <br />
+              I'm excited about the possibility of collaborating to create cutting-edge web applications. Let's connect and make something
+              amazing together!
             </p>
           </div>
           {/* <h2 className="mb-2 text-xl font-bold">Saya Dede Ardiansya</h2>
@@ -46,7 +48,10 @@ export default function AboutPage() {
           </div> */}
           <h2 className="mb-2 text-xl font-bold">Tech i love</h2>
           <div className="mb-6">
-            <p className="mb-1">MERN Stack Developer || JAVASCRIPT | TYPESCRIPT | REACT | NEXTJS | NODE JS | EXPRESS JS | PHP | LARAVEL | MONGO DB | SQL | Git | GitHub | AWS | EC2 | Data Structure.</p>
+            <p className="mb-1">
+              MERN Stack Developer || JAVASCRIPT | TYPESCRIPT | REACT | NEXTJS | NODE JS | EXPRESS JS | PHP | LARAVEL | MONGO DB | SQL | Git
+              | GitHub | AWS | EC2 | Data Structure.
+            </p>
           </div>
           <a
             download

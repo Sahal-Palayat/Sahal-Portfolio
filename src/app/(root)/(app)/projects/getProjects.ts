@@ -17,36 +17,34 @@ const fetchOptions: RequestInit = {
 
 const getProjects = async () => {
   // Fetch repositories and check if the response is an array
-  const repositoriesResponse = await fetch(repositoriesUrl, fetchOptions);
-  const repositories = await repositoriesResponse.json();
+  const repositoriesResponse = await fetch(repositoriesUrl, fetchOptions)
+  const repositories = await repositoriesResponse.json()
 
   if (!Array.isArray(repositories)) {
-    console.error("Expected an array, but got:", repositories);
-    return []; // Return an empty array if the response is not as expected
+    console.error('Expected an array, but got:', repositories)
+    return [] // Return an empty array if the response is not as expected
   }
 
   // Filter the repositories that have `languages_url` and `description`
-  const filteredRepositories = repositories.filter(
-    (r) => r.languages_url && r.description
-  );
+  const filteredRepositories = repositories.filter((r) => r.languages_url && r.description)
 
   const promises = filteredRepositories.map(async (repo) => {
-    const data = await fetch(repo.languages_url, fetchOptions).then((res) => res.json() as Promise<{ [key: string]: number }>);
-    const names = Object.keys(data);
-    const languages: { name: string; size: number }[] = [];
-    let total = 0;
+    const data = await fetch(repo.languages_url, fetchOptions).then((res) => res.json() as Promise<{ [key: string]: number }>)
+    const names = Object.keys(data)
+    const languages: { name: string; size: number }[] = []
+    let total = 0
 
-    for (let name of names) total += data[name];
+    for (let name of names) total += data[name]
     for (let name of names) {
       languages.push({
         name,
         size: (data[name] / total) * 100,
-      });
+      })
     }
 
     const commits = await fetch(`https://api.github.com/repos/${repo.full_name}/commits?per_page=1`, fetchOptions).then(
-      (res) => res.json() as Promise<[any]>
-    );
+      (res) => res.json() as Promise<[any]>,
+    )
 
     const repository: IRepository = {
       id: repo.id,
@@ -69,18 +67,18 @@ const getProjects = async () => {
       last_commit_date: commits[0]?.commit?.committer?.date,
       topics: repo.topics,
       languages: languages,
-    };
+    }
 
-    return repository;
-  });
+    return repository
+  })
 
   const data = (await Promise.all(promises)).sort((a, b) => {
-    const dateA = new Date(a.last_commit_date);
-    const dateB = new Date(b.last_commit_date);
-    return dateB.getTime() - dateA.getTime();
-  });
+    const dateA = new Date(a.last_commit_date)
+    const dateB = new Date(b.last_commit_date)
+    return dateB.getTime() - dateA.getTime()
+  })
 
-  return data;
-};
+  return data
+}
 
-export default getProjects;
+export default getProjects

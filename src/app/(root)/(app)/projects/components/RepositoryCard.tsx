@@ -7,7 +7,6 @@ import { FiStar } from 'react-icons/fi'
 import { IRepository } from '@/types'
 
 const RepositoryCard: React.FC<{ repo: IRepository }> = ({ repo }) => {
-  
   return (
     <div className="relative flex flex-col overflow-hidden bg-white/50 backdrop-blur dark:bg-black/80">
       <div className="flex-1 p-5">

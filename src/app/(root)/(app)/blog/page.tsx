@@ -22,7 +22,6 @@ export default async function BlogPage() {
     return 1
   })
 
-
   // const blogs = [
   //   {
   //     title: "Mastering the MERN Stack: A Beginner's Guide",
@@ -75,17 +74,17 @@ export default async function BlogPage() {
   //     slug: "learning-mern-stack",
   //   },
   // ];
-  
+
   return (
     <>
       <PageTitle title="Blog" />
       <ul className="grid grid-cols-1 gap-3 md:mb-5">
-    {blogs.map((post) => (
-      <li key={post.slug}>
-        <BlogPostItem post={post} />
-      </li>
-    ))}
-  </ul>
+        {blogs.map((post) => (
+          <li key={post.slug}>
+            <BlogPostItem post={post} />
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
